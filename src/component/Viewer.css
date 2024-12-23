@@ -1,0 +1,34 @@
+.Viewer{
+
+}
+.img_wrapper{
+  text-align: center;
+}
+.emotion_img_wrapper_1{
+  background-color: #64c;
+}
+.emotion_img_wrapper_2{
+  background-color: #9dd;
+}
+.emotion_img_wrapper_3{
+  background-color: #fdc;
+}
+.emotion_img_wrapper_4{
+  background-color: #fd8;
+}
+.emotion_img_wrapper_5{
+  background-color: #fd5;
+}
+.emotion_img_wrapper_1{
+  background-color: #64c964;
+}
+
+.content_wrapper{
+  text-align: center;
+}
+.content_wrapper > div {
+  font-size: 25px;
+  background-color: green;
+  color: white;
+  border-bottom: 1px dashed beige;
+}

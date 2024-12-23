@@ -1,0 +1,13 @@
+.DiaryItem{
+  background-color: beige;
+  display: flex;
+}
+.DiaryItem img{
+  width: 100px;
+}
+.info_section{
+  border: 1px dashed gray;
+  border-radius: 5px;
+  width: 60%;
+  margin: 5px 25px;
+}

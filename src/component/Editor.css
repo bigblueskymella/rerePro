@@ -1,0 +1,9 @@
+.emotion_list_wrapper{
+  width: 600px;
+  background-color: beige;
+  display: flex;
+  justify-content: space-around;
+}
+/* .emotion_list_wrapper > img{
+  width: 100px;
+} */

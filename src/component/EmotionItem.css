@@ -1,0 +1,34 @@
+.EmotionItem{
+  cursor: pointer;
+  width: 80px;
+  align-items: center;
+  border: 3px dashed yellowgreen;
+  border-radius: 15px;
+}
+.EmotionItem > img{
+width: 70px;
+}
+.EmotionItem > span{
+  font-size: 18px;
+}
+.EmotionItem_off{
+  background-color: beige;
+}
+.EmotionItem_on_1{
+  background-color: green;
+}
+.EmotionItem_on_2{
+  background-color: lightblue;
+}
+.EmotionItem_on_3{
+  background-color: yellow;
+}
+.EmotionItem_on_4{
+  background-color: lightpink;
+}
+.EmotionItem_on_5{
+  background-color: lightsalmon;
+}
+.EmotionItem_on_6{
+  background-color: orange;
+}

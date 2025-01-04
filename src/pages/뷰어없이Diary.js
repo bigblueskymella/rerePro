@@ -1,39 +1,36 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import useDiary from "../hooks/useDiary";
-import Viewer from "../component/Viewer";
-import { emotionList } from "../util";
+import React from 'react'
+import {useNavigate, useParams} from 'react-router-dom'
+import useDiary from '../hooks/useDiary';
+import Header from '../component/Header';
+import Viewer from '../component/Viewer';
+import { emotionList } from '../util';
 
 const Diary = () => {
-  const { id } = useParams();
-  const data = useDiary(id); //커스텀훅(id에 해당하는 일기 불러오기)
-  const navigate = useNavigate();
-  // console.log(params) 436p
-  // console.log("다이어리", data);
+  const {id} = useParams();
+  const data = useDiary(id)
+  // const params = useParams();
+  // console.log(params)
+  const navigate = useNavigate()
+  const goBack=()=>{navigate(-1)}
+  const goEdit=()=>{navigate(`/edit/${id}`)}
 
-  const goEdit = () => {
-    navigate(`/edit/${id}`);
-  };
-
-  if (!data) {
-    return <div>일기를 불러오고 있습니다...</div>;
-  } else {
-    const { date, emotionId, content } = data;
-    // 🛑뷰어없이
+  if(!data){
+    return <div>일기를 불러오고 있습니다...</div>
+  }else{
+    const {date, emotionId, content}=data;
+    // 🛑뷰어없이 아래두줄
     const emotionItem = emotionList.find((item) => item.id === Number(emotionId));
     console.log("아이템",emotionItem)
-
     return (
+    <div>
+      <Header title={date +"기록"}
+        leftChild={<button onClick={goBack}>뒤로가기</button>}
+        rightChild={<button onClick={goEdit}>수정하기</button>}
+      />
+      <div>{id}번째 일기 Diary</div>
+      <div>Diary 페이지 입니다</div>
+      {/* <Viewer content={content} emotionId={emotionId}/> */}
       <div>
-        <div className="header_wrapper">
-          <button onClick={() => navigate(-1)}> ◀ 뒤로 가기 </button>
-          <h3>{id}번째 일기</h3>
-          <button onClick={goEdit}>수정하기</button>
-        </div>
-        <div>Diary 페이지입니다.</div>
-    
-        {/* <Viewer content={content} emotionId={emotionId}/> 🛑뷰어없이*/}
-        <div>
           <h2>오늘의 운동 보기</h2>
           <div>
             <img src={emotionItem.img} />
@@ -45,8 +42,10 @@ const Diary = () => {
             <p>{content}</p>
           </div>
         </div>
-      </div>
-    );
+    </div>
+  )
   }
-};
-export default Diary;
+  
+}
+
+export default Diary

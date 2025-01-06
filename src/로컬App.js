@@ -84,7 +84,7 @@ const App = () => {
       return;
     }
     idRef.current = localData[0].id+1;
-    dispatch({type: "INIT", data: localData});
+    dispatch({type: "INIT", data: localData}); //🎃목을 이곳을 바꿔준다
     setIsDataLoaded(true)
   }, []);
 

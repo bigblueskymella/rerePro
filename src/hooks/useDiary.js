@@ -13,7 +13,7 @@ const useDiary = (id) => {
       setDiary(matchDiary)
     }else{
       alert("일기가 존재하지 않습니다");
-      NavigationPreloadManager("/", {replace:true})
+      navigate("/", {replace:true})
     }
   },[id,data])
 

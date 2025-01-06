@@ -1,0 +1,28 @@
+.HealthItem {
+  cursor: pointer;
+  width: 80px;
+  align-items: center;
+  border: 3px dashed yellowgreen;
+  border-radius: 15px;
+}
+.HealthItem_off {
+  background-color: #ececec;
+}
+.HealthItem_on_1 {
+  background-color: green;
+}
+.HealthItem_on_2 {
+  background-color: lightblue;
+}
+.HealthItem_on_3 {
+  background-color: yellow;
+}
+.HealthItem_on_4 {
+  background-color: lightpink;
+}
+.HealthItem_on_5 {
+  background-color: lightsalmon;
+}
+.HealthItem_on_6 {
+  background-color: orange;
+}

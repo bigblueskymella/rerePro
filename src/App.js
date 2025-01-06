@@ -1,11 +1,15 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
-import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
+import "./App.css";
 import Home from "./pages/Home";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 import Edit from "./pages/Edit";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 
+export const DiaryStateContext = React.createContext(); //상태
+export const DiaryDispatchContext = React.createContext(); //실행
+
+// 리렌더 필요없는 목데이터 외부에 입력
 const mockData = [
   {
     id: "mock1",
@@ -27,16 +31,14 @@ const mockData = [
   },
 ];
 
-export const DiaryStateContext = React.createContext();
-export const DiaryDispatchContext = React.createContext();
-
+// 🟡App외부에 작성한다 reducer상태변화함수
 function reducer(state, action) {
   switch (action.type) {
     case "INIT": {
       return action.data;
     }
     case "CREATE": {
-      return [action.data, ...state];
+      return [action.data, ...state]; //바뀐내용, 기존의 내용
     }
     case "UPDATE": {
       // 🔴{...item, ...action.data}
@@ -54,16 +56,17 @@ function reducer(state, action) {
         (item) => String(item.id) !== String(action.targetId)
       );
     }
+
     default: {
       return state;
     }
   }
 }
 
-const App = () => {
+function App() {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [data, dispatch] = useReducer(reducer, []);
-  const idRef = useRef(0);
+  const idRef = useRef(0); //🟡배열 형태의 일기 리스트 id부여
 
   useEffect(() => {
     dispatch({
@@ -82,7 +85,6 @@ const App = () => {
         content,
         emotionId,
       },
-      // data: mockData,
     });
     idRef.current += 1;
   };
@@ -105,11 +107,13 @@ const App = () => {
   };
 
   if (!isDataLoaded) {
-    return <div>데이터를 불러오는 중...</div>;
+    return <div>데이터를 불러오는 중입니다...</div>;
   } else {
     return (
+      // StateContext 상태: 일기state
+      // DispatchContext 함수: update함수
       <DiaryStateContext.Provider value={data}>
-        <DiaryDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
+        <DiaryDispatchContext.Provider value={{ onCreate, onDelete, onUpdate }}>
           <div className="App">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -117,17 +121,11 @@ const App = () => {
               <Route path="/diary/:id" element={<Diary />} />
               <Route path="/edit/:id" element={<Edit />} />
             </Routes>
-      {/* <div>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/new"}>New</Link>
-        <Link to={"/diary"}>Diary</Link>
-        <Link to={"/edit"}>Edit</Link>
-      </div> */}
           </div>
         </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
     );
   }
-};
+}
 
 export default App;

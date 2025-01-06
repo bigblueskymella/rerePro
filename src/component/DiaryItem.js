@@ -28,3 +28,25 @@ const DiaryItem = ({id, emotionId, content, date}) => {
 }
 
 export default DiaryItem
+
+// import React from 'react'
+// import './DiaryItem.css'
+// import {useNavigate} from 'react-router-dom'
+// import { getEmotionImgById } from '../util'
+
+// // DiaryList로부터 Props로 일기 객체를 받는다
+// // 일기 객체를 구조 분해 할당한다
+// const DiaryItem = ({id, emotionId, content, date}) => {
+//   const navigate = useNavigate()
+//   const goDetail = () => {navigate(`/diary/${id}`)}
+//   return (
+//     <div>
+//      <div className={[`img_section_${emotionId}`].join(" ")} onClick={goDetail}>
+//         <img src={getEmotionImgById(emotionId)}/>
+//       </div>
+//       {date}
+//     </div>
+//   )
+// }
+
+// export default DiaryItem

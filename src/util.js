@@ -20,11 +20,11 @@ export const getEmotionImgById = (emotionId) => {
       return emotion05;
     case "6":
       return emotion06;
+    default:
+      return null;
   }
 };
 
-// 🟡자바스크립트에서 
-// 사용할 수 있는 데이터 형태
 export const emotionList = [
   {
     id:1,

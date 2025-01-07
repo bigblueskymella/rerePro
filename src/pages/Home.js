@@ -2,26 +2,27 @@ import React, {useContext} from 'react'
 import Editor from '../component/Editor'
 import Header from '../component/Header'
 import Diary from './Diary'
-import HealthList from '../component/HealthList'
+import DiaryList from '../component/DiaryList'
 import { DiaryStateContext } from '../App'
 
-const Home = () => { //🏀이 부분 추가하기
+const Home = () => {
   const data = useContext(DiaryStateContext)// 🔴
+
   return (
     <div>
-    <Header title={"오늘의 운동 일기"}
+      <Header title={new Date().toLocaleString()}
         leftChild={"왼쪽"}
         rightChild={"오른쪽"}
       />
-    <HealthList data={data}/> {/* data를 HealthList에 전달 */}
+      <DiaryList data={data}/>
       {/* <Editor 
         initData={{
-          date:new Date().toLocaleDateString(),
-          emotionId:4,
-          content:"이전에 작성했던 내용",
+          date:new Date().getTime(),
+          emotionId:5,
+          content:"이전에 작성한 일기"
         }}
         onSubmit={()=>{
-        alert("작성 완료 버튼 클릭했음")
+        alert("작성 완료")
       }}/> */}
     </div>
   )

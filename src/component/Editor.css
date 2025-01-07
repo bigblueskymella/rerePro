@@ -1,27 +1,9 @@
-h4{
-    font-size:24px;
-    font-weight:bold;
+.emotion_list_wrapper{
+  width: 600px;
+  background-color: beige;
+  display: flex;
+  justify-content: space-around;
 }
-input{
-    cursor:pointer;
-    padding:10px 0;
-    background-color:#ececec;
-    font-size:20px;
-    font-family: "Gamja Flower", serif; /*index.css*/
-    color:blue;
-}
-textarea{
-    width:100%;
-    min-height:200px;
-    background-color:#ececec;
-    font-size:22px;
-    font-family: "Gamja Flower", serif;
-    color:blue
-}
-.list_wrapper{
-    display:flex;
-    justify-content:space-around;
-}
-.list_wrapper img{
-    width:80px; /*바꿈*/
-}
+/* .emotion_list_wrapper > img{
+  width: 100px;
+} */

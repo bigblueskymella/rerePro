@@ -1,4 +1,5 @@
-body{
+.App{
+  margin: 0 auto;
   width: 600px;
   border: 5px dashed green;
   border-radius: 20px;
